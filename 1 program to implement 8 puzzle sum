@@ -1,0 +1,68 @@
+from collections import deque
+
+# Function to get possible moves (neighbors) from a given state
+def get_neighbors(puzzle):
+    neighbors = []
+    index = puzzle.index(0)  # Find the blank space (0)
+
+    # Define possible move directions (up, down, left, right)
+    moves = [
+        (-1, 0),  # Up
+        (1, 0),   # Down
+        (0, -1),  # Left
+        (0, 1)    # Right
+    ]
+    
+    x, y = divmod(index, 3)  # Convert the index to a 2D position (x, y)
+
+    for move in moves:
+        nx, ny = x + move[0], y + move[1]
+        if 0 <= nx < 3 and 0 <= ny < 3:  # Check if the move is within bounds
+            new_puzzle = puzzle[:]
+            new_index = nx * 3 + ny
+            # Swap the blank (0) with the target tile
+            new_puzzle[index], new_puzzle[new_index] = new_puzzle[new_index], new_puzzle[index]
+            neighbors.append(new_puzzle)
+
+    return neighbors
+
+# Function to solve the puzzle using BFS
+def solve_puzzle(start, goal):
+    queue = deque([(start, [])])  # (puzzle state, path)
+    visited = set()
+    visited.add(tuple(start))
+
+    while queue:
+        puzzle, path = queue.popleft()
+
+        # Check if the current state is the goal
+        if puzzle == goal:
+            return path + [puzzle]
+
+        for neighbor in get_neighbors(puzzle):
+            neighbor_tuple = tuple(neighbor)
+
+            if neighbor_tuple not in visited:
+                visited.add(neighbor_tuple)
+                queue.append((neighbor, path + [puzzle]))
+
+    return None
+
+# Function to print the puzzle state
+def print_puzzle(puzzle):
+    for i in range(0, 9, 3):
+        print(puzzle[i:i+3])
+    print()
+
+# Main
+start = [1, 2, 3, 4, 0, 5, 6, 7, 8]  # Initial state
+goal = [1, 2, 3, 4, 5, 6, 7, 8, 0]  # Goal state
+
+solution = solve_puzzle(start, goal)
+
+if solution:
+    print("Solution found:")
+    for step in solution:
+        print_puzzle(step)
+else:
+    print("No solution exists.")
