@@ -1,0 +1,24 @@
+% Base case: an empty list has zero vowels
+count_vowels([], 0).
+
+% Recursive case: If the head of the list is a vowel, increment the count
+count_vowels([H|T], Count) :-
+    is_vowel(H),                    % Check if H is a vowel
+    count_vowels(T, CountTail),      % Recursively count vowels in the tail
+    Count is CountTail + 1.          % Add 1 to the count if H is a vowel
+
+% Recursive case: If the head of the list is not a vowel, continue without incrementing
+count_vowels([H|T], Count) :-
+    \+ is_vowel(H),                  % Check if H is not a vowel
+    count_vowels(T, Count).          % Continue with the tail
+
+% Predicate to check if a character is a vowel
+is_vowel(a).
+is_vowel(e).
+is_vowel(i).
+is_vowel(o).
+is_vowel(u).
+is_vowel(A) :- downcase_atom(A, Lower), is_vowel(Lower).  % To handle uppercase vowels
+
+?- count_vowels([a, b, c, e, o], Count).
+Count = 3.
