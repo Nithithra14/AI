@@ -1,0 +1,13 @@
+% match([], []) succeeds when both lists are empty
+match([], []).
+
+% match([P|Pattern], [P|List]) succeeds if the head of the pattern matches the head of the list
+% and the rest of the pattern matches the rest of the list.
+match([P|Pattern], [P|List]) :-
+    match(Pattern, List).
+
+% match([_|Pattern], [_|List]) tries to skip a non-matching element in both the pattern and list.
+match([_|Pattern], [_|List]) :-
+    match(Pattern, List).
+    ?- match([a, b, c], [a, b, c]).
+true.
