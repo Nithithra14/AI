@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My WordPress Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A sample blog post demonstrating the usage of anchor tags, title tags, and other HTML elements.">
+    <title>My Blog Post on HTML Tags</title> <!-- Title Tag -->
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Blog</h1>
-  </header>
-  
-  <nav>
-    <ul>
-      <li><a href="#section1">Jump to Section 1</a></li>
-      <li><a href="#section2">Jump to Section 2</a></li>
-    </ul>
-  </nav>
-  
-  <main>
-    <article>
-      <h2 id="section1">Section 1</h2>
-      <p>This is the content of section 1.</p>
-      
-      <h2 id="section2">Section 2</h2>
-      <p>This is the content of section 2.</p>
-    </article>
-  </main>
-  
-  <footer>
-    <p>&copy; 2024 My WordPress Blog. All rights reserved.</p>
-  </footer>
+    <header>
+        <h1>Welcome to My HTML Tag Demonstration Blog Post</h1> <!-- Heading Tag (H1) -->
+    </header>
+
+    <section>
+        <h2>Understanding the Anchor Tag</h2> <!-- Heading Tag (H2) -->
+        <p>
+            The anchor tag is used to create hyperlinks in your content. Here's an example of an anchor tag:
+        </p>
+        <p>
+            Click <a href="https://example.com" title="Visit Example Website">here</a> to visit an example website. <!-- Anchor Tag with title attribute -->
+        </p>
+    </section>
+
+    <section>
+        <h2>Using Heading Tags for Structure</h2> <!-- Heading Tag (H2) -->
+        <p>
+            HTML offers different levels of heading tags from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> to organize content hierarchically. The <code>&lt;h1&gt;</code> tag is typically used for the main title, while <code>&lt;h2&gt;</code> through <code>&lt;h6&gt;</code> are used for subheadings.
+        </p>
+    </section>
+
+    <section>
+        <h2>Embedding Images with the Image Tag</h2> <!-- Heading Tag (H2) -->
+        <p>
+            Here's how you can embed an image into your blog post using the <code>&lt;img&gt;</code> tag:
+        </p>
+        <p>
+            <img src="https://example.com/sample-image.jpg" alt="Sample Image" title="Sample Image Title"> <!-- Image Tag with alt and title attributes -->
+        </p>
+        <p>
+            The <code>alt</code> attribute provides an alternative text for the image if it cannot be displayed, and the <code>title</code> attribute shows additional information when you hover over the image.
+        </p>
+    </section>
+
+    <footer>
+        <p>Thank you for reading! For more information, visit <a href="https://mysite.com" title="My Blog">My Blog</a>.</p> <!-- Anchor Tag -->
+    </footer>
 </body>
 </html>
